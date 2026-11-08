@@ -30,3 +30,36 @@
   border-top: 1px solid #888;
   text-align: center;
 }
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.product-card {
+  border: 1px solid #888;
+  border-radius: 6px;
+  padding: 0.75rem;
+}
+
+.product-card img {
+  width: 100%;
+  height: auto;
+}
+
+.product-card h3 {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+}
+
+.product-category {
+  margin: 0;
+  opacity: 0.7;
+  font-size: 0.85rem;
+}
+
+.product-price {
+  margin: 0.25rem 0 0;
+  font-weight: bold;
+}
