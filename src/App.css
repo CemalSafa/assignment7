@@ -137,3 +137,34 @@
   font-size: 1.25rem;
   font-weight: bold;
 }
+
+/* Theme: the wrapper gets the class "theme-light" or "theme-dark" */
+.theme-light {
+  --bg: #ffffff;
+  --text: #1a1a1a;
+}
+
+.theme-dark {
+  --bg: #1b1b1f;
+  --text: #f2f2f2;
+}
+
+.layout {
+  background: var(--bg);
+  color: var(--text);
+}
+
+.layout a {
+  color: inherit;
+}
+
+.layout button,
+.layout input,
+.layout select {
+  font: inherit;
+  padding: 0.35rem 0.6rem;
+  background: var(--bg);
+  color: var(--text);
+  border: 1px solid #888;
+  border-radius: 4px;
+}
