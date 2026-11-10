@@ -1,9 +1,16 @@
 import { NavLink, useNavigate } from 'react-router'
 import { useAuth } from '../context/AuthContext'
+import { useCartStore } from '../store/cartStore'
 
 function NavBar() {
   const { user, dispatch } = useAuth()
   const navigate = useNavigate()
+
+  // The selector returns a number (a primitive): NavBar re-renders only
+  // when the count itself changes, not on every change of the store
+  const itemCount = useCartStore((state) =>
+    state.items.reduce((sum, item) => sum + item.quantity, 0)
+  )
 
   function handleLogout() {
     dispatch({ type: 'LOGGED_OUT' })
@@ -16,7 +23,7 @@ function NavBar() {
         Home
       </NavLink>
       <NavLink to="/products">Products</NavLink>
-      <NavLink to="/cart">Cart</NavLink>
+      <NavLink to="/cart">Cart ({itemCount})</NavLink>
 
       <div className="navbar-right">
         {user ? (
